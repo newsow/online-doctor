@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Outlet} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -27,7 +27,7 @@ const Navbar = () => {
                     <nav className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
-                                <Link to=''
+                                <Link to='/faq'
                                       className="text-gray-500 transition hover:text-gray-500/75">
                                     Обратная связь
                                 </Link>
@@ -40,7 +40,7 @@ const Navbar = () => {
                         <div className="sm:flex sm:gap-4">
                             <Link
                                 className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                                to='/'
+                                to='/login'
                             >
                                 Войти
                             </Link>
@@ -76,7 +76,6 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-        <Outlet/>
     </div>
   )
 }

@@ -1,12 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import {Link} from "react-router-dom";
 
 const Error404 = () => {
   return(
       <div>
-          <Navbar/>
           <div className="grid h-screen place-content-center bg-white px-4">
               <div className="text-center">
                   <h1 className="text-9xl font-black text-teal-300">404</h1>
@@ -23,7 +20,6 @@ const Error404 = () => {
                   </Link>
               </div>
           </div>
-          <Footer/>
       </div>
   )
 }
