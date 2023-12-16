@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
 
                     <ul
-                        className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
+                        className="mt-12 mb-8 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
                     >
                         <li>
                             <Link
