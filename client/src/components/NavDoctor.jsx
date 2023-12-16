@@ -78,7 +78,6 @@ const NavDoctor = () => {
                     </div>
                 </div>
             </div>
-            <Outlet/>
         </div>
     )
 }

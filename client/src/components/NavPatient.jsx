@@ -85,7 +85,6 @@ const NavPatient = () => {
                     </div>
                 </div>
             </div>
-            <Outlet/>
         </div>
     )
 }
