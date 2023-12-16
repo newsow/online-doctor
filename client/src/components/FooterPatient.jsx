@@ -48,7 +48,6 @@ const FooterPatient = () => {
                         Все права защищены &copy; 2023. Командой Апельсин
                     </p>
                 </div>
-                <Outlet/>
             </div>
         </div>
     )

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 require('dotenv').config()
 const adminModel = require('./models/adminModel')
-const dbUrl = process.env.DBURL || 'mongodb://127.0.0.1:27017/sights'
+const dbUrl = process.env.DBURL || 'mongodb://127.0.0.1:27017/doctor'
 const salt = Number(process.env.salt) || 3
 
 const start = async () =>{

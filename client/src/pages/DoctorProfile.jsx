@@ -1,24 +1,28 @@
-import React from "react";
-import NavDoctor from "../components/NavDoctor";
-import FooterDoctor from "../components/FooterDoctor";
+import React, { useState,useEffect } from "react";
 import {Link} from "react-router-dom";
-
+import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 const DoctorProfile = () => {
+    const navigate = useNavigate()
+    const [doctor,setDoctor] = useState([])
+    const token = localStorage.getItem('doctorToken')
+    useEffect(()=>{
+        axios.get('http://localhost:5000/doctor/profile',{
+          headers:{
+            'Authorization': `Bearer ${token}`
+          }}).then(response=>{
+            setDoctor(response.data)
+          },[])
+      })
+      if(!token){
+        return navigate('/')
+      }
     return(
         <div>
-            <NavDoctor/>
             <div className="p-16">
                 <div className="p-8 bg-white border-2 border-teal-500 rounded-xl mt-24">
                     <div className="grid grid-cols-1 md:grid-cols-3">
                         <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
-                            <Link
-                            to=''>
-                                <p className="font-bold text-gray-700 text-xl">89</p>
-                                <p
-                                    className="text-gray-400">
-                                    Отзывы
-                                </p>
-                            </Link>
                         </div>
                         <div className="relative">
                             <div
@@ -34,15 +38,15 @@ const DoctorProfile = () => {
 
                      <div className="mt-20 text-center border-b-2 border-teal-500 pb-12">
                         <h1 id='DoctorName'
-                            className="text-4xl font-medium text-gray-700">Егорик Егорик
+                            className="text-4xl font-medium text-gray-700">{doctor.firstName+' '+doctor.lastName}
                             <span
                                 id='DoctorAge'
-                                className="font-light text-gray-500"> 27</span></h1>
+                                className="font-light text-gray-500"> {doctor.age}</span></h1>
                         <p  id='DoctorPlace'
-                            className="font-light text-gray-600 mt-3">Саров, Россия</p>
+                            className="font-light text-gray-600 mt-3">{doctor.location}</p>
 
                         <p  id='TypeDoctor'
-                            className="mt-8 text-gray-500">Терапевт</p>
+                            className="mt-8 text-gray-500">{doctor.position}</p>
                     </div>
 
                     <div className="mt-12 flex flex-col justify-center">
@@ -51,7 +55,6 @@ const DoctorProfile = () => {
 
                 </div>
             </div>
-            <FooterDoctor/>
         </div>
     )
 

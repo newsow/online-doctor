@@ -1,7 +1,43 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
-
+import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+    const options = [
+        {value:'doctor', label:'Я доктор'},
+        {value:'user',label:'Я пациент'}
+    ]
+    const navigate = useNavigate()
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const [select,setSelect] = useState(null)
+    const login = async(e) => {
+        e.preventDefault()
+        let res;
+        if(select.value==='doctor'){
+            res = await axios.post('http://localhost:5000/doctor/login',{
+                email,
+                password
+            })
+            console.log(res)
+            if (res.status === 200){
+                localStorage.setItem('doctorToken',res.data)
+                return navigate('/doctor')
+            }
+        }
+        else{
+            res = await axios.post('http://localhost:5000/user/login',{
+                email,
+                password
+            })
+            console.log(res)
+            if (res.status === 200){
+                localStorage.setItem('token',res.data)
+                return navigate('/patient')
+            }
+        }
+    } 
     return(
         <div>
             <section className="bg-white mt-7">
@@ -23,11 +59,11 @@ const Login = () => {
                             </h1>
 
                             <form
-                                action="#"
+                                onSubmit={(e)=>login(e)}
                                 className="mt-10 grid grid-cols-2 gap-6">
                                 <div className="col-span-1 sm:col-span-3">
                                     <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
-                                        Логин
+                                        Почта
                                     </label>
 
                                     <input
@@ -35,7 +71,9 @@ const Login = () => {
                                         id="FirstName"
                                         name="first_name"
                                         className="mt-1 p-4 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                                        placeholder="Введите логин..."
+                                        placeholder="Введите почту..."
+                                        value={email}
+                                        onChange={(e)=>setEmail(e.target.value)}
                                     />
                                 </div>
 
@@ -52,21 +90,25 @@ const Login = () => {
                                         name="password_confirmation"
                                         placeholder="Введите пароль..."
                                         className="mt-1 p-4 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                                        value={password}
+                                        onChange={(e)=>setPassword(e.target.value)}
                                     />
                                 </div>
-
+                                <div class="col-span-6 sm:col-span-3">
+                                    <Select
+                                    defaultValue={select}
+                                    onChange={setSelect}
+                                    options={options}
+                                    />
+                                </div>
                                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                                    <Link
-                                        to=''
-                                        className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                                    >
+                                    <button type="submit" className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
                                         Войти
-                                    </Link>
-
+                                    </button>
                                     <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                                         Еще нет аккаунта?
                                         <Link
-                                            to="/"
+                                            to="/registration"
                                             className="text-gray-700 underline">
                                             Зарегистрируйтесь
                                         </Link>.

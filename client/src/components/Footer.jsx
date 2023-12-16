@@ -34,14 +34,14 @@ const Footer = () => {
                         <li>
                             <Link
                                 className="text-gray-700 transition hover:text-gray-700/75"
-                                to="/">
+                                to="/faq">
                                 Обратная связь
                             </Link>
                         </li>
 
                         <li>
                             <Link className="text-gray-700 transition hover:text-gray-700/75"
-                                  to="/">
+                                  to="/registration">
                                   Регистрация
                             </Link>
                         </li>
@@ -49,7 +49,7 @@ const Footer = () => {
                         <li>
                             <Link
                                 className="text-gray-700 transition hover:text-gray-700/75"
-                                to="/">
+                                to="/login">
                                 Войти
                             </Link>
                         </li>

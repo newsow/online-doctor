@@ -1,12 +1,29 @@
-import React from "react";
-import NavDoctor from "../components/NavDoctor";
-import FooterDoctor from "../components/FooterDoctor";
-import {Link} from "react-router-dom";
-
+import React, { useEffect,useState } from "react";
+import ListCerificates from "../components/ListCerificates";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import ModalForm from "../components/ModalForm";
 const PatientProfile = () => {
+    const navigate = useNavigate()
+    const [user,setUser] = useState([])
+    const [showModal,setShowModal] = useState(false)
+    const token = localStorage.getItem('token')
+    const closeModal = () =>{
+        setShowModal(false)
+    }
+    useEffect(()=>{
+        axios.get('http://localhost:5000/user/profile',{
+          headers:{
+            'Authorization': `Bearer ${token}`
+          }}).then(response=>{
+            setUser(response.data)
+          },[])
+      })
+      if(!token){
+        return navigate('/')
+      }
     return(
         <div>
-            <NavDoctor/>
             <div className="p-16">
                 <div className="p-8 bg-white border-2 border-teal-500 rounded-xl mt-24">
                     <div className="grid grid-cols-1 md:grid-cols-3">
@@ -23,90 +40,28 @@ const PatientProfile = () => {
 
                     <div className="mt-20 text-center border-b-2 border-teal-500 pb-12">
                         <h1 id='PatientName'
-                            className="text-4xl font-medium text-gray-700">Егорик Егорик
+                            className="text-4xl font-medium text-gray-700">{user.firstName+' '+user.lastName}
                             <span
                                 id='PatientAge'
-                                className="font-light text-gray-500"> 27</span>
+                                className="font-light text-gray-500">{user.age}</span>
                         </h1>
                         <p  id='PatientPlace'
                             className="font-light text-gray-600 mt-3">
-                            Саров, Россия
+                            {user.email}
                         </p>
 
                     </div>
-                    <div className=''>
-                        <div className="mt-8 flex flex-col justify-center border-b border-teal-500 pb-8">
-                            <p className="text-gray-600 text-center font-semibold text-xl lg:px-16">Список справок</p>
-                        </div>
-                        <div className='flex flex-row justify-between mt-8 mx-5'>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                        </div>
-                        <div className='flex flex-row justify-between mt-14 mx-5'>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                            <Link
-                                id='disease'
-                                to=''
-                                className='font-light hover:underline '>
-                                Паспорт
-                            </Link>
-                        </div>
+                    <div>
+                        <button onClick={()=>{
+                            setShowModal(true)
+                        }}>
+                            Добавить Справку
+                        </button>
                     </div>
-
+                    <ModalForm isOpen={showModal} onClose={closeModal} id={user._id}/>
+                    <ListCerificates certificates={user.documents} />
                 </div>
             </div>
-            <FooterDoctor/>
         </div>
     )
 
