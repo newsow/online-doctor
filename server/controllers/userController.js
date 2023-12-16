@@ -72,7 +72,7 @@ class userController{
             const {id} = req.params
             const {name} = req.body
             const file = req.file.filename
-            const user = await userModel.findByIdAndUpdate(id,{$addToSet:{documents:{name,path:`documents/${file.filename}`}}})
+            const user = await userModel.findByIdAndUpdate(id,{$addToSet:{documents:{name,path:`documents/${file}`}}})
             return res.status(200).json(user)
         } catch (error) {
             console.log(error)
