@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, Outlet} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -62,7 +62,6 @@ const Footer = () => {
                     Все права защищены &copy; 2023. Командой Апельсин
                 </p>
             </div>
-            <Outlet/>
         </div>
 
     )

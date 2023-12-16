@@ -1,12 +1,9 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import {Link} from "react-router-dom";
 
 const Login = () => {
     return(
         <div>
-            <Navbar/>
             <section className="bg-white mt-7">
                 <div className="mx-auto max-w-screen-xl lg:grid lg:min-h-screen lg:grid-cols-12">
                     <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
@@ -80,7 +77,6 @@ const Login = () => {
                     </main>
                 </div>
             </section>
-            <Footer/>
         </div>
     )
 

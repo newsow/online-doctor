@@ -11,10 +11,6 @@ const AdminSidebar = () => {
           <li className="mb-2">
             <Link to='/admin/panel' className="text-gray-300 hover:text-white">Admins</Link>
           </li>
-          <li className="mb-2">
-            <Link to='/admin/panel/sight' className="text-gray-300 hover:text-white">Sights</Link>
-          </li>
-          {/* Add more sidebar links as needed */}
         </ul>
       </div>
       <div className="flex-1 p-8">
