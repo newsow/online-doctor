@@ -80,6 +80,18 @@ class doctorController{
             return res.status(500).json(error)
         }
     }
+
+    async getOneByToken(req,res){
+        try {
+            const token = req.headers.authorization.split(' ')[1]
+            const doctorToken = jwt.verify(token,secretKey)
+            const doctor = await doctorModel.findById(doctorToken.id)
+            return res.status(200).json(doctor)
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json(error)
+        }
+    }
 }
 
 module.exports = new doctorController
