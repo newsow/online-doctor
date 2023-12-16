@@ -10,6 +10,8 @@ import Login from './Login'
 import LayoutPatient from '../components/LayoutPatient'
 import LayoutDoctor from '../components/LayoutDoctor'
 import Registration from './Registration'
+import PatientProfile from './PatientProfile'
+import DoctorProfile from './DoctorProfile'
 const AppRouter = () => {
   return (
     <div>
@@ -25,10 +27,10 @@ const AppRouter = () => {
                 <Route path='*' element={<Error404/>}/>
             </Route>
             <Route path='/patient' element={<LayoutPatient/>}>
-
+              <Route path='/patient' element={<PatientProfile/>}/>
             </Route>
             <Route path='/doctor' element={<LayoutDoctor/>}>
-
+              <Route path='/doctor' element={<DoctorProfile/>}/>
             </Route>
         </Routes>
     </div>

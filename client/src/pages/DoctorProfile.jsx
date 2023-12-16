@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 const DoctorProfile = () => {
     return(
         <div>
-            <NavDoctor/>
             <div className="p-16">
                 <div className="p-8 bg-white border-2 border-teal-500 rounded-xl mt-24">
                     <div className="grid grid-cols-1 md:grid-cols-3">
@@ -51,7 +50,6 @@ const DoctorProfile = () => {
 
                 </div>
             </div>
-            <FooterDoctor/>
         </div>
     )
 
