@@ -9,7 +9,7 @@ const Navbar = () => {
                 <div className="flex-1 md:flex md:items-center md:gap-12">
                     <Link
                         to="/"
-                        className="flex text-teal-600 items-center gap-6 text-xl" >
+                        className="flex text-teal-600 items-center gap-6 text-xl hover:text-teal-500 duration-200" >
                         <span className="sr-only"></span>
                         <svg className="w-6 h-6 text-gray-800 dark:text-white"
                              aria-hidden="true"
@@ -39,20 +39,20 @@ const Navbar = () => {
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
                             <Link
-                                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
                                 to='/login'
                             >
                                 Войти
                             </Link>
 
                             <Link
-                                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
                                 to="/"
                             >
                                 Регистрация
                             </Link>
 
-                            <button className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                            <button className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
                                     id = "specialButton"
                                     >
                                 Версия для слабовидящих

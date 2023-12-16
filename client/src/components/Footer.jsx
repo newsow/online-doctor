@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const Footer = () => {
     return (
         <div className="bg-gray-100">
-            <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+            <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-14">
 
                 <div className="lg:flex lg:items-end lg:justify-between">
                     <div>
@@ -58,7 +58,7 @@ const Footer = () => {
 
 
 
-                <p className="mt-12 text-center text-sm text-gray-500 lg:text-right">
+                <p className="text-center text-sm text-gray-500 lg:text-right">
                     Все права защищены &copy; 2023. Командой Апельсин
                 </p>
             </div>
