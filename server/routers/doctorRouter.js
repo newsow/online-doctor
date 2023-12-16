@@ -5,10 +5,10 @@ const imageUploader =require('../middlewares/imageUploader')
 
 router.post('/create',imageUploader.single('file'),doctorController.create)
 router.post('/login',doctorController.login)
-router.post('/profile',doctorController.getOneByToken)
+router.get('/profile',doctorController.getOneByToken)
 router.post('/add/:userId',doctorController.addPatient)
 router.get('/all',doctorController.getAll)
-router.get('/:id',doctorController.getOne)
+router.get('/get/:id',doctorController.getOne)
 
 
 module.exports = router
