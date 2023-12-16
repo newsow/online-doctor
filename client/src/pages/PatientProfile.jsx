@@ -2,10 +2,15 @@ import React, { useEffect,useState } from "react";
 import ListCerificates from "../components/ListCerificates";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import ModalForm from "../components/ModalForm";
 const PatientProfile = () => {
     const navigate = useNavigate()
     const [user,setUser] = useState([])
+    const [showModal,setShowModal] = useState(false)
     const token = localStorage.getItem('token')
+    const closeModal = () =>{
+        setShowModal(false)
+    }
     useEffect(()=>{
         axios.get('http://localhost:5000/user/profile',{
           headers:{
@@ -46,7 +51,14 @@ const PatientProfile = () => {
                         </p>
 
                     </div>
-                    
+                    <div>
+                        <button onClick={()=>{
+                            setShowModal(true)
+                        }}>
+                            Добавить Справку
+                        </button>
+                    </div>
+                    <ModalForm isOpen={showModal} onClose={closeModal} id={user._id}/>
                     <ListCerificates certificates={user.documents} />
                 </div>
             </div>
