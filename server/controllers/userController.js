@@ -12,11 +12,12 @@ class userController{
         try {
             const {firstName,lastName,email,password} = req.body
             const candidate = await userModel.findOne({email})
+            const file = req.file.filename
             if(candidate){
                 return res.status(400).json({message:'Пользователь с такой почты уже существует'})
             }
             const hashPassword = bcrypt.hashSync(password,salt)
-            const user = await userModel.create({firstName,lastName,email,password:hashPassword})
+            const user = await userModel.create({firstName,lastName,email,password:hashPassword,avatar:`images/${file.filename}`})
             const token = generateAccesToken(user._id,user.email)
             return res.status(200).json(token)
         } catch (error) {
@@ -59,6 +60,19 @@ class userController{
         try {
             const {id} = req.params
             const user = await userModel.findById(id)
+            return res.status(200).json(user)
+        } catch (error) {
+            console.log(error)
+            return res.status(200).json(error)
+        }
+    }
+    
+    async addDocument(req,res){
+        try {
+            const {id} = req.params
+            const {name} = req.body
+            const file = req.file.filename
+            const user = await userModel.findByIdAndUpdate(id,{$addToSet:{documents:{name,path:`documents/${file.filename}`}}})
             return res.status(200).json(user)
         } catch (error) {
             console.log(error)

@@ -12,12 +12,13 @@ class doctorController{
     async create(req,res){
         try {
             const {email,firstName,lastName,password} = req.body
+            const file = req.file.filename
             const candidate = await doctorModel.findOne({email})
             if(candidate){
                 return res.status(400).json({message:'Email is already taken'})
             }
             const hashPassword = bcrypt.hashSync(password,salt)
-            const doctor = await doctorModel.create({email,firstName,lastName,password:hashPassword})
+            const doctor = await doctorModel.create({email,firstName,lastName,password:hashPassword,avatar:`images/${file.filename}`})
             return res.status(200).json(doctor)
         } catch (error) {
             console.log(error)
