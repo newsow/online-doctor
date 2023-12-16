@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
 import ListCerificates from "../components/ListCerificates";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 const PatientProfile = () => {
     const navigate = useNavigate()
-    const user = {
-        id:'alfa1lj4aljhff',
-        firstName:'Lera',
-        lastName:'Lura',
-        email:'lera@gmail.com',
-        age:24,
-        documents:[
-            {
-                name:'Passport',
-                path:'documents/test.txt'
-            }
-        ]
-    }
+    const [user,setUser] = useState([])
     const token = localStorage.getItem('token')
-    
-
+    useEffect(()=>{
+        axios.get('http://localhost:5000/user/profile',{
+          headers:{
+            'Authorization': `Bearer ${token}`
+          }}).then(response=>{
+            setUser(response.data)
+          },[])
+      })
+      if(!token){
+        return navigate('/')
+      }
     return(
         <div>
             <div className="p-16">
