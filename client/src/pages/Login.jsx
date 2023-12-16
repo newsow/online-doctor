@@ -13,12 +13,14 @@ const Login = () => {
     const [password,setPassword] = useState('')
     const [select,setSelect] = useState(null)
     const login = async(e) => {
+        e.preventDefault()
         let res;
         if(select.value==='doctor'){
             res = await axios.post('http://localhost:5000/doctor/login',{
                 email,
                 password
             })
+            console.log(res)
             if (res.status === 200){
                 localStorage.setItem('doctorToken',res.data)
                 return navigate('/doctor')
@@ -29,6 +31,7 @@ const Login = () => {
                 email,
                 password
             })
+            console.log(res)
             if (res.status === 200){
                 localStorage.setItem('token',res.data)
                 return navigate('/patient')

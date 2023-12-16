@@ -8,9 +8,9 @@ const ListCerificates = ({certificates}) => {
             <div className="mt-8 flex flex-col justify-center border-b border-teal-500 pb-8">
                 <p className="text-gray-600 text-center font-semibold text-xl lg:px-16">Список справок</p>
             </div>
-            {certificates.map((certificate)=>{
+            {certificates? certificates.map((certificate)=>{
                 return <Certificate certificate={certificate} />
-            })}
+            }): ''}
         </div>
     </div>
   )
