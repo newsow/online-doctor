@@ -9,6 +9,7 @@ import Faq from './Faq'
 import Login from './Login'
 import LayoutPatient from '../components/LayoutPatient'
 import LayoutDoctor from '../components/LayoutDoctor'
+import Registration from './Registration'
 const AppRouter = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const AppRouter = () => {
             <Route path='/' element={<LayoutMain/>}>
                 <Route path='/' element={<Main/>}/>
                 <Route path='/login' element={<Login/>}/>
+                <Route path='/registration' element={<Registration/>}/>
                 <Route path='/admin/panel' element={<AdminSidebar/>}>
                     <Route path='/admin/panel' element={<AdminForm/>}/>
                 </Route>
