@@ -53,6 +53,14 @@ const Footer = () => {
                                 Войти
                             </Link>
                         </li>
+
+                        <li>
+                            <Link
+                                className="text-gray-700 transition hover:text-gray-700/75"
+                                to="/admin/login">
+                                Панель администратора
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 
