@@ -12,12 +12,11 @@ class userController{
         try {
             const {firstName,lastName,email,password} = req.body
             const candidate = await userModel.findOne({email})
-            const file = req.file.filename
             if(candidate){
                 return res.status(400).json({message:'Пользователь с такой почты уже существует'})
             }
             const hashPassword = bcrypt.hashSync(password,salt)
-            const user = await userModel.create({firstName,lastName,email,password:hashPassword,avatar:`images/${file.filename}`})
+            const user = await userModel.create({firstName,lastName,email,password:hashPassword})
             const token = generateAccesToken(user._id,user.email)
             return res.status(200).json(token)
         } catch (error) {
