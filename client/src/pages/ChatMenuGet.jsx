@@ -1,12 +1,10 @@
 import React from "react";
-import NavPatient from "../components/NavPatient";
-import FooterPatient from "../components/FooterPatient";
+
 import {Link} from "react-router-dom";
 
-const ChatMenu = () => {
+const ChatMenuGet = () => {
   return(
       <div>
-          <NavPatient/>
           <div className='flex flex-row justify-center my-5 gap-5 border-b border-teal-500 '>
               <Link className='hover:border hover:border-teal-400 hover:rounded-t-md p-2 hover:border-b-white'>
                   <span className='text-gray-500'>
@@ -47,7 +45,27 @@ const ChatMenu = () => {
                   to=''
                   className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
                   <p className='ml-5 mt-2 font-light'>
-                      Лелик.Л
+                      Василий Кузнецов
+                  </p>
+                  <p className='ml-5 mb-2 font-semibold'>
+                      Ваш рак кожи
+                  </p>
+              </Link>
+              <Link
+                  to=''
+                  className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
+                  <p className='ml-5 mt-2 font-light'>
+                      Василий кузнецов
+                  </p>
+                  <p className='ml-5 mb-2 font-semibold'>
+                      Мед справка
+                  </p>
+              </Link>
+              <Link
+                  to=''
+                  className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
+                  <p className='ml-5 mt-2 font-light'>
+                      Мария Рюрик
                   </p>
                   <p className='ml-5 mb-2 font-semibold'>
                       Тема сообщения..
@@ -57,7 +75,7 @@ const ChatMenu = () => {
                   to=''
                   className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
                   <p className='ml-5 mt-2 font-light'>
-                      Лелик.Л
+                      Константин Егоров
                   </p>
                   <p className='ml-5 mb-2 font-semibold'>
                       Тема сообщения..
@@ -67,35 +85,14 @@ const ChatMenu = () => {
                   to=''
                   className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
                   <p className='ml-5 mt-2 font-light'>
-                      Лелик.Л
-                  </p>
-                  <p className='ml-5 mb-2 font-semibold'>
-                      Тема сообщения..
-                  </p>
-              </Link>
-              <Link
-                  to=''
-                  className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
-                  <p className='ml-5 mt-2 font-light'>
-                      Лелик.Л
-                  </p>
-                  <p className='ml-5 mb-2 font-semibold'>
-                      Тема сообщения..
-                  </p>
-              </Link>
-              <Link
-                  to=''
-                  className='py-3 border-teal-500 border-t block mx-auto max-w-6xl hover:bg-gray-100 duration-200'>
-                  <p className='ml-5 mt-2 font-light'>
-                      Лелик.Л
+                      Петр Александрович
                   </p>
                   <p className='ml-5 mb-2 font-semibold'>
                       Тема сообщения..
                   </p>
               </Link>
           </div>
-          <FooterPatient/>
       </div>
   )
 }
-export default ChatMenu
+export default ChatMenuGet

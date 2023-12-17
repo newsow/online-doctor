@@ -27,7 +27,7 @@ const NavPatient = () => {
                         <nav className="hidden md:block">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
-                                    <Link to=''
+                                    <Link to='/faq'
                                           className="text-gray-500 transition hover:text-gray-500/75">
                                         Обратная связь
                                     </Link>
@@ -47,14 +47,14 @@ const NavPatient = () => {
 
                                 <Link
                                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
-                                    to='/'
+                                    to='/patient/chat'
                                 >
-                                    Связь с врачом
+                                    Чат
                                 </Link>
 
                                 <Link
                                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
-                                    to="/"
+                                    to="/patient"
                                 >
                                     Профиль
                                 </Link>

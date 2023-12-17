@@ -13,6 +13,7 @@ import Registration from './Registration'
 import PatientProfile from './PatientProfile'
 import DoctorProfile from './DoctorProfile'
 import PatientsList from './PatientsList'
+import ChatMenuGet from './ChatMenuGet'
 const AppRouter = () => {
   return (
     <div>
@@ -29,6 +30,7 @@ const AppRouter = () => {
             </Route>
             <Route path='/patient' element={<LayoutPatient/>}>
               <Route path='/patient' element={<PatientProfile/>}/>
+              <Route path='/patient/chat' element={<ChatMenuGet/>}/>
             </Route>
             <Route path='/doctor' element={<LayoutDoctor/>}>
               <Route path='/doctor' element={<DoctorProfile/>}/>

@@ -59,7 +59,7 @@ const PatientsList = () => {
                     </button> */}
               </div>
               <div className='flex justify-around mt-8 '>
-                  <div className='flex flex-row flex-wrap border border-teal-500 rounded-xl justify-center w-4/5 mb-14'>
+                  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
                     {filtredPatient ?
                     filtredPatient.map((patient)=>{
                         return <PatientComponent patient={patient} key={patient._id}/>
