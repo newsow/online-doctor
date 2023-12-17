@@ -12,6 +12,7 @@ import LayoutDoctor from '../components/LayoutDoctor'
 import Registration from './Registration'
 import PatientProfile from './PatientProfile'
 import DoctorProfile from './DoctorProfile'
+import PatientsList from './PatientsList'
 const AppRouter = () => {
   return (
     <div>
@@ -31,6 +32,7 @@ const AppRouter = () => {
             </Route>
             <Route path='/doctor' element={<LayoutDoctor/>}>
               <Route path='/doctor' element={<DoctorProfile/>}/>
+              <Route path='/doctor/patients' element={<PatientsList/>}/>
             </Route>
         </Routes>
     </div>

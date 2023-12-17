@@ -40,7 +40,7 @@ const NavDoctor = () => {
                             <div className="sm:flex sm:gap-4">
                                 <Link
                                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
-                                    to='/'
+                                    to='/doctor/patients'
                                 >
                                     Список пациентов
                                 </Link>

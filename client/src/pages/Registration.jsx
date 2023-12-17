@@ -8,7 +8,9 @@ const Registration = () => {
     const [lastName,setLastName] = useState('')
     const [email,setEmail] = useState('')
     const navigate = useNavigate()
+    
     const registration =async(e)=>{
+      e.preventDefault()
         const res = await axios.post('http://localhost:5000/user/signUp',{
             firstName,
             lastName,
