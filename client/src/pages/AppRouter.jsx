@@ -15,6 +15,8 @@ import DoctorProfile from './DoctorProfile'
 import PatientsList from './PatientsList'
 import ChatMenuGet from './ChatMenuGet'
 import VideoChat from './VideoChat'
+import AdminLogin from './AdminLogin'
+import DoctorForm from '../components/DoctorForm'
 const AppRouter = () => {
   return (
     <div>
@@ -25,6 +27,7 @@ const AppRouter = () => {
                 <Route path='/registration' element={<Registration/>}/>
                 <Route path='/admin/panel' element={<AdminSidebar/>}>
                     <Route path='/admin/panel' element={<AdminForm/>}/>
+                    <Route path='/admin/panel/doctors' element={<DoctorForm/>} />
                 </Route>
                 <Route path='/faq' element={<Faq/>}/>
                 <Route path='*' element={<Error404/>}/>
@@ -38,6 +41,7 @@ const AppRouter = () => {
               <Route path='/doctor' element={<DoctorProfile/>}/>
               <Route path='/doctor/patients' element={<PatientsList/>}/>
             </Route>
+            <Route path='/admin/login' element={<AdminLogin/>} />
         </Routes>
     </div>
   )

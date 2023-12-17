@@ -44,20 +44,18 @@ const NavDoctor = () => {
                                 >
                                     Список пациентов
                                 </Link>
-
+                                
+                                <Link
+                                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
+                                    to='/patient/video'
+                                >
+                                    Конференция
+                                </Link>
                                 <Link
                                     className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
                                     to="/doctor"
                                 >
                                     Профиль
-                                </Link>
-
-                                <Link
-                                    to=''
-                                    className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-teal-500 duration-200"
-                                    id = "specialButton"
-                                >
-                                    Версия для слабовидящих
                                 </Link>
                             </div>
 
