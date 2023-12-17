@@ -14,6 +14,7 @@ import PatientProfile from './PatientProfile'
 import DoctorProfile from './DoctorProfile'
 import PatientsList from './PatientsList'
 import ChatMenuGet from './ChatMenuGet'
+import VideoChat from './VideoChat'
 const AppRouter = () => {
   return (
     <div>
@@ -31,6 +32,7 @@ const AppRouter = () => {
             <Route path='/patient' element={<LayoutPatient/>}>
               <Route path='/patient' element={<PatientProfile/>}/>
               <Route path='/patient/chat' element={<ChatMenuGet/>}/>
+              <Route path='/patient/video' element={<VideoChat/>}/>
             </Route>
             <Route path='/doctor' element={<LayoutDoctor/>}>
               <Route path='/doctor' element={<DoctorProfile/>}/>
