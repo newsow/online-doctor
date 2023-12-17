@@ -1,8 +1,8 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from "react";
+import {Link, Outlet} from "react-router-dom";
 
-const Footer = () => {
-    return (
+const FooterDoctor = () => {
+    return(
         <div className="bg-gray-100">
             <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-14">
 
@@ -27,33 +27,6 @@ const Footer = () => {
                             С заботой о Вашем здоровьем
                         </p>
                     </div>
-
-                    <ul
-                        className="mt-12 mb-8 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12"
-                    >
-                        <li>
-                            <Link
-                                className="text-gray-700 transition hover:text-gray-700/75"
-                                to="/faq">
-                                Обратная связь
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link className="text-gray-700 transition hover:text-gray-700/75"
-                                  to="/registration">
-                                  Регистрация
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                className="text-gray-700 transition hover:text-gray-700/75"
-                                to="/login">
-                                Войти
-                            </Link>
-                        </li>
-                    </ul>
                 </div>
 
 
@@ -63,8 +36,7 @@ const Footer = () => {
                 </p>
             </div>
         </div>
-
     )
-}
 
-export default Footer
+}
+export default FooterDoctor

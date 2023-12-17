@@ -1,11 +1,8 @@
 import React from 'react'
 import doctor from '../images/chto-delaet-terapevt.webp'
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 const Main = () => {
   return (
     <div>
-      <Navbar/>
       <section>
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16 items-center">
@@ -226,7 +223,6 @@ const Main = () => {
             </div>
           </div>
       </section>
-      <Footer/>
         </div>
   )
 }
